@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📅 Daily Planner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    header {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      background: indigo;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .days {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    .card {
+      background: white;
+      padding: 12px;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .day-label {
+      font-weight: 600;
+      width: 50px;
+    }
+    .note-input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>📅 Daily Planner</header>
+
+  <!-- Days row -->
+  <div class="days">
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
+    <div>Sun</div>
+  </div>
+
+  <!-- Notes section -->
+  <div id="planner"></div>
+
+  <script>
+    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    const plannerDiv = document.getElementById("planner");
+
+    days.forEach(day => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const label = document.createElement("div");
+      label.className = "day-label";
+      label.textContent = day;
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Write your notes...";
+      input.className = "note-input";
+
+      card.appendChild(label);
+      card.appendChild(input);
+      plannerDiv.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
